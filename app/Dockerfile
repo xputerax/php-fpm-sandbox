@@ -1,0 +1,26 @@
+FROM debian:12-slim
+
+RUN apt update -y
+
+RUN apt install nginx \
+    -y
+
+RUN apt install php8.2 \
+    php8.2-fpm \
+    -y
+
+COPY nginx_new/nginx.conf /etc/nginx/nginx.conf
+
+COPY php-fpm/conf.d/www.conf /etc/php/8.2/fpm/pool.d/www.conf
+
+COPY app/docker-entrypoint.sh /docker-entrypoint.sh
+
+RUN chmod +x /docker-entrypoint.sh
+
+WORKDIR /var/www/html
+
+COPY www/* .
+
+EXPOSE 80
+
+ENTRYPOINT ["sh", "-c", "/docker-entrypoint.sh"]

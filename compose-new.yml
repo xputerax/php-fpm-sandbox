@@ -1,0 +1,19 @@
+services:
+  traefik:
+    image: traefik:latest
+    ports:
+    - 8080:80
+    - 81:8080
+    networks:
+     - app
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+      - ./traefik/traefik.yml:/etc/traefik/traefik.yml
+  app:
+    image: fpmsandbox:latest
+    scale: 3
+    networks:
+      - app
+
+networks:
+  app:
