@@ -1,0 +1,38 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: php-fpm-sandbox-separate
+spec:
+  selector:
+    matchLabels:
+      app: php-fpm-sandbox-separate
+  replicas: 3
+  template:
+    metadata:
+      labels:
+        app: php-fpm-sandbox-separate
+    spec:
+      containers:
+      - name: nginx
+        image: nginx:latest
+        volumeMounts:
+          - name: nginx-config
+            mountPath: /etc/nginx/nginx.conf
+        resources:
+          limits:
+            memory: "128Mi"
+            cpu: "128m"
+        ports:
+        - containerPort: 80
+      - name: php-fpm
+        image: ghcr.io/xputerax/php-fpm-sandbox-separate:chore-pipelines-ef7daad
+        resources:
+          limits:
+            memory: "128Mi"
+            cpu: "128m"
+        ports:
+        - containerPort: 9000
+      volumes:
+      - name: "nginx config"
+        configMap:
+          name: php-fpm-sandbox-separate-cm
