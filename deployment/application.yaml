@@ -1,0 +1,16 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: php-fpm-sandbox
+  namespace: argo
+  labels:
+    app: php-fpm-sandbox
+spec:
+  project: default
+  source:
+    repoURL: https://github.com/xputerax/php-fpm-sandbox.git
+    targetRevision: chore/pipelines
+    path: .
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: corp
