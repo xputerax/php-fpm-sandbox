@@ -26,14 +26,14 @@ spec:
             cpu: "128m"
         ports:
         - containerPort: 80
-      - name: php-fpm
-        image: ghcr.io/xputerax/php-fpm-sandbox-separate:chore-pipelines-ef7daad
-        resources:
-          limits:
-            memory: "128Mi"
-            cpu: "128m"
-        ports:
-        - containerPort: 9000
+      # - name: php-fpm
+      #   image: ghcr.io/xputerax/php-fpm-sandbox-separate:chore-pipelines-ef7daad
+      #   resources:
+      #     limits:
+      #       memory: "128Mi"
+      #       cpu: "128m"
+      #   ports:
+      #   - containerPort: 9000
       volumes:
       - name: "nginx-config"
         configMap:
