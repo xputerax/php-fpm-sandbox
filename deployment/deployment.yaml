@@ -6,6 +6,7 @@ spec:
   selector:
     matchLabels:
       app: php-fpm-sandbox
+  replicas: 3
   template:
     metadata:
       labels:
