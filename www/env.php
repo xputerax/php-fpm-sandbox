@@ -1,5 +1,7 @@
 <?php
 
+header('Content-Type: application/json');
+
 echo json_encode([
     'uname' => php_uname('a'),
     '$_SERVER' => $_SERVER,
