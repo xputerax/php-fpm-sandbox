@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: php-fpm-sandbox
+spec:
+  selector:
+    matchLabels:
+      app: php-fpm-sandbox
+  template:
+    metadata:
+      labels:
+        app: php-fpm-sandbox
+    spec:
+      containers:
+      - name: php-fpm-sandbox
+        image: <Image>
+        resources:
+          limits:
+            memory: "128Mi"
+            cpu: "128m"
+        ports:
+        - containerPort: 80
