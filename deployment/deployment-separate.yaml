@@ -27,7 +27,7 @@ spec:
         ports:
         - containerPort: 80
       - name: php-fpm
-        image: ghcr.io/xputerax/php-fpm-sandbox-separate:chore-pipelines-ef7daad
+        image: ghcr.io/xputerax/php-fpm-sandbox-separate:chore-pipelines-4787718
         resources:
           limits:
             memory: "128Mi"
