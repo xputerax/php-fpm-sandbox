@@ -33,6 +33,6 @@ spec:
         ports:
         - containerPort: 9000
       volumes:
-      - name: "nginx config"
+      - name: "nginx-config"
         configMap:
           name: php-fpm-sandbox-separate-cm
