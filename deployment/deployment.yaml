@@ -13,7 +13,7 @@ spec:
     spec:
       containers:
       - name: php-fpm-sandbox
-        image: ghcr.io/xputerax/php-fpm-sandbox:chore-pipelines-9d646bd
+        image: ghcr.io/xputerax/php-fpm-sandbox:chore-pipelines-1fb21b7
         resources:
           limits:
             memory: "128Mi"
